@@ -11,4 +11,8 @@ package com.mycompany.markomarkovic.exercise3;
  */
 public class Graph {
     
+    public static void main(String[] args){
+    
+    System.out.println("Hello");
+    }
 }
