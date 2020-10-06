@@ -10,33 +10,34 @@ package markomarkovic.exercise3;
  * @author Marko Markovic
  */
 class Matrix {
-    public int matrix[][];
+    public boolean matrix[][];
     public int rows;
     public int cols;
     
-    public void Matrix(int rows, int cols){
-    this.matrix = new int[rows][cols];
+    
+    //Basuc constructor for Matrix
+    Matrix(int rows, int cols){
+    this.matrix = new boolean[rows][cols];
     this.rows = rows;
     this.cols = cols;
     }
-    
-    //method to fill with 0
-    public void fillMatrixZero(){
-        for(int i=0;i<this.rows;i++){
-            for(int j=0;j<this.cols; j++){
-                this.matrix[i][j] = 0;
-            }
-        }
+
+    Matrix() {
+        this.matrix = new boolean[0][0];
+        this.rows = 0;
+        this.cols = 0;
     }
+    
     
     //method for printing a matrix
     public void printMatrix(){
         for(int i=0;i<this.rows;i++){
             for(int j=0;j<this.cols;j++){
-                System.out.print(this.matrix[i][j] + " ");
-            }
-            System.out.println();
+                if(this.matrix[i][j] == false){
+                    System.out.print("0" + "\t");
+                } else {System.out.print("1" + "\t");}
+                
+            }System.out.println();
         }
-        System.out.println("_____________________________________");
     }
 }

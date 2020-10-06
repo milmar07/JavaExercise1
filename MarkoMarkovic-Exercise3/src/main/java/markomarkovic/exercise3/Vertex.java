@@ -1,14 +1,20 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package markomarkovic.exercise3;
 
 /**
  *
- * @author HAF
+ * @author Marko Markovic
  */
 class Vertex {
     public String label;
+
+    //Basic constructor for Vertex
+    Vertex(String string) {
+        this.label = string;
+    }
+    
+    public void printVertex(){
+    System.out.print(this.label);
+    }
+    
+    
 }
