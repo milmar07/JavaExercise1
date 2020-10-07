@@ -1,10 +1,12 @@
 package markomarkovic.exercise4;
 
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
+import com.google.common.collect.HashMultiset; 
+import com.google.common.collect.Multiset; 
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  *
@@ -12,10 +14,10 @@ import java.util.Set;
  */
 public class WordCountAndMultiSets {
     
-    Set<String> multiset;
+    Multiset<String> multiset; 
     
     public WordCountAndMultiSets(){
-        this.multiset = new HashSet(); 
+        this.multiset = HashMultiset.create(); 
     }
     
     public static void main(String[] args){
@@ -37,13 +39,19 @@ public class WordCountAndMultiSets {
             }
         }
         System.out.println("Thank you for your input");
-        ArrayList<Integer> firstThree= new ArrayList<Integer>();
-        for(int i=0; i<firstBag.multiset.size();i++){
-           if(firstThree.size() < 3){
-               firstThree.add(Collections.frequency(firstBag.multiset, firstBag.multiset.))
-           } 
+        
+        System.out.println("The most common 3 words: ");
+        
+        TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>(Collections.reverseOrder());
+        
+        for(Iterator<String> it = firstBag.multiset.iterator(); it.hasNext();){
+            String nextLoad = new String();
+            nextLoad = it.next();
+            treeMap.put(firstBag.multiset.count(nextLoad), nextLoad);    
         }
         
+        TreeMap<Integer, String> myNewMap = treeMap.entrySet().stream().limit(3).collect(TreeMap::new, (m,e) -> m.put(e.getKey(), e.getValue()), Map::putAll);
+        System.out.println(myNewMap);
     }
 }
 
