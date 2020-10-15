@@ -48,6 +48,17 @@ public class WordCountAndMultiSets {
             System.out.println("Please enter your line: ");
             String line = sc.nextLine();
             if(line.contains(".")){
+                String[] tempLine = line.split(" ");
+                for(int j=0; j<tempLine.length; j++){
+                    if(j == (tempLine.length - 1)){
+                        StringBuffer sb = new StringBuffer(tempLine[j]);
+                        sb.deleteCharAt(sb.length()-1);
+                        firstBag.multiset.add(sb.toString());
+                        break;
+                    } else{
+                    firstBag.multiset.add(tempLine[j]);
+                    }   
+                }
                 break;
             }
             String[] result = line.split(" ");
