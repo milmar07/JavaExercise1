@@ -51,7 +51,20 @@ public class WordFilter {
     }
     
     //task 2
-    public static void wordsOfLenght(int len){}    
+    public static void wordsOfLenght(int len){
+        WordFilter wf = new WordFilter();
+        String regex = "(?m)\\b\\w{"+len+"}\\b";
+        Pattern pattern = Pattern.compile(regex);
+        
+        Matcher matcher = pattern.matcher(wf.inputText);
+        
+        while(matcher.find()){
+            System.out.println(
+                    String.format("Words found with [%d] lenght : [%S]",len, matcher.group())
+            );
+        }
+        
+    }    
     
     //task 3
     public static void wordsAllCaps(){}
@@ -65,13 +78,14 @@ public class WordFilter {
     
     public static void main(String[] args){
         //task1
-        wordsAtLineBegin();
+        //wordsAtLineBegin();
+        //System.out.println("------------------------ END OF TASK 1 ---------------------------");
         
         //task2
-       // System.out.println("Please enter the lenght of the words you wish to get: ");
-       // Scanner sc = new Scanner(System.in);
-       // int inp = sc.nextInt();
-        //wordsOfLenght(inp);
+        System.out.println("Please enter the lenght of the words you wish to get: ");
+        Scanner sc = new Scanner(System.in);
+        int inp = sc.nextInt();
+        wordsOfLenght(inp);
         //wordsAllCaps();
         //wordsFirstCapital();
         //wordsInBrackets();
