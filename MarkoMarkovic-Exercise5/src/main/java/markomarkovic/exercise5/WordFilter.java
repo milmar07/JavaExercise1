@@ -38,7 +38,7 @@ public class WordFilter {
     //task 1
     public static void wordsAtLineBegin(){
         WordFilter wf = new WordFilter();
-        String regex = "(?m)^\\b(.*?)[^,]\\b";
+        String regex = "(?m)^\\b\\w(.*?)[^,]\\b";
         Pattern pattern = Pattern.compile(regex);
         
         Matcher matcher = pattern.matcher(wf.inputText);
@@ -67,13 +67,48 @@ public class WordFilter {
     }    
     
     //task 3
-    public static void wordsAllCaps(){}
+    public static void wordsAllCaps(){
+        WordFilter wf = new WordFilter();
+        String regex = "\\b[A-Z]+\\b";
+        Pattern pattern = Pattern.compile(regex);
+        
+        Matcher matcher = pattern.matcher(wf.inputText);
+        
+        while(matcher.find()){
+            System.out.println(
+                    String.format("Words found with all CAPS: [%S] ",matcher.group())
+            );
+        }
+    }
     
     //task 4
-    public static void wordsFirstCapital(){}
-    
+    public static void wordsFirstCapital(){
+    WordFilter wf = new WordFilter();
+        String regex = "\\b[A-Z]\\w+\\b";
+        Pattern pattern = Pattern.compile(regex);
+        
+        Matcher matcher = pattern.matcher(wf.inputText);
+        
+        while(matcher.find()){
+            System.out.println(
+                    String.format("Words found with first Capital letter: [%S] ",matcher.group())
+            );
+        }
+    }
     //task 5
-    public static void wordsInBrackets(){}
+    public static void wordsInBrackets(){
+        WordFilter wf = new WordFilter();
+        String regex = "(?m)[a](.*?)[a]";
+        Pattern pattern = Pattern.compile(regex);
+        
+        Matcher matcher = pattern.matcher(wf.inputText);
+        
+        while(matcher.find()){
+            System.out.println(
+                    String.format("Words found with brackts: [%S] ",matcher.group())
+            );
+        }
+    }
     
     
     public static void main(String[] args){
@@ -82,15 +117,19 @@ public class WordFilter {
         //System.out.println("------------------------ END OF TASK 1 ---------------------------");
         
         //task2
-        System.out.println("Please enter the lenght of the words you wish to get: ");
-        Scanner sc = new Scanner(System.in);
-        int inp = sc.nextInt();
-        wordsOfLenght(inp);
-        //wordsAllCaps();
-        //wordsFirstCapital();
-        //wordsInBrackets();
+        //System.out.println("Please enter the lenght of the words you wish to get: ");
+        //Scanner sc = new Scanner(System.in);
+        //int inp = sc.nextInt();
+        //wordsOfLenght(inp);
         
-
+        //task3
+        //wordsAllCaps();
+        
+        //task4
+        //wordsFirstCapital();
+        
+        //task5
+        wordsInBrackets();
     }
     
 }
