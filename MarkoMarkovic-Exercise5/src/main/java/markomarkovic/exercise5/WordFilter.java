@@ -98,14 +98,14 @@ public class WordFilter {
     //task 5
     public static void wordsInBrackets(){
         WordFilter wf = new WordFilter();
-        String regex = "(?m)[a](.*?)[a]";
-        Pattern pattern = Pattern.compile(regex);
+        String regex = "[\\(](.*?)[\\)]";
+        Pattern pattern = Pattern.compile(regex,Pattern.DOTALL);
         
         Matcher matcher = pattern.matcher(wf.inputText);
         
         while(matcher.find()){
             System.out.println(
-                    String.format("Words found with brackts: [%S] ",matcher.group())
+                    String.format("Words found with brackts: [%S] ",matcher.group().replace('\n',' '))
             );
         }
     }
@@ -113,23 +113,27 @@ public class WordFilter {
     
     public static void main(String[] args){
         //task1
-        //wordsAtLineBegin();
-        //System.out.println("------------------------ END OF TASK 1 ---------------------------");
+        wordsAtLineBegin();
+        System.out.println("------------------------ END OF TASK 1 ---------------------------");
         
         //task2
-        //System.out.println("Please enter the lenght of the words you wish to get: ");
-        //Scanner sc = new Scanner(System.in);
-        //int inp = sc.nextInt();
-        //wordsOfLenght(inp);
+        System.out.println("Please enter the lenght of the words you wish to get: ");
+        Scanner sc = new Scanner(System.in);
+        int inp = sc.nextInt();
+        wordsOfLenght(inp);
+        System.out.println("------------------------ END OF TASK 2 ---------------------------");
         
         //task3
-        //wordsAllCaps();
+        wordsAllCaps();
+        System.out.println("------------------------ END OF TASK 3 ---------------------------");
         
         //task4
-        //wordsFirstCapital();
+        wordsFirstCapital();
+        System.out.println("------------------------ END OF TASK 4 ---------------------------");
         
         //task5
         wordsInBrackets();
+        System.out.println("------------------------ END OF TASK 5 ---------------------------");
     }
     
 }
